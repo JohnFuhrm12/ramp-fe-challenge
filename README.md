@@ -103,7 +103,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 **Actual:** The page crashes
 
-# Bug 4: Clicking on View More button not showing correct data
+# Bug 4: Clicking on View More button not showing correct data 
 
 **How to reproduce:**
 
@@ -114,11 +114,11 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 **Actual:** New transactions replace initial transactions, losing initial transactions
 
-# Bug 5: Employees filter not available during loading more data
+# Bug 5: Employees filter not available during loading more data *DONE* - **In Index.tsx, only show loading if items loaded equals 0**
 
 _This bug has 2 wrong behaviors that will be fixed with the same solution_
 
-##### Part 1
+##### Part 1 *DONE* - **In Index.tsx, only show loading if items loaded equals 0**
 
 **How to reproduce:**
 
@@ -130,7 +130,7 @@ _This bug has 2 wrong behaviors that will be fixed with the same solution_
 
 **Actual:** The filter stops showing "Loading employees.." until `paginatedTransactions` is succeeded
 
-##### Part 2
+##### Part 2 *DONE* - **In Index.tsx, only show loading if items loaded equals 0**
 
 **How to reproduce:**
 
@@ -142,7 +142,7 @@ _This bug has 2 wrong behaviors that will be fixed with the same solution_
 
 **Actual:** The employees filter shows "Loading employees..." after clicking **View more** until new transactions are loaded.
 
-# Bug 6: View more button not working as expected
+# Bug 6: View more button not working as expected *DONE* - **See Below**
 
 _This bug has 2 wrong behaviors that can be fixed with the same solution. It's acceptable to fix with separate solutions as well._
 
