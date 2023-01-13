@@ -3,6 +3,11 @@ import { PaginatedRequestParams, PaginatedResponse, Transaction } from "../utils
 import { PaginatedTransactionsResult } from "./types"
 import { useCustomFetch } from "./useCustomFetch"
 
+export let allDataLoaded = false;
+export function getVar() {
+  return allDataLoaded
+}
+
 export function usePaginatedTransactions(): PaginatedTransactionsResult {
   const { fetchWithCache, loading } = useCustomFetch()
   const [paginatedTransactions, setPaginatedTransactions] = useState<PaginatedResponse<
@@ -22,7 +27,14 @@ export function usePaginatedTransactions(): PaginatedTransactionsResult {
         return response
       }
 
-      return { data: response.data, nextPage: response.nextPage }
+      // Loads 5 transactions per "View More", If less than 5 than there is no more data to load //Need 6 to account for delay
+      if (response.data.length < 6) {
+        allDataLoaded = true
+      } else {
+        allDataLoaded = false
+      }
+
+      return { data: response.data, nextPage: response.nextPage, allDataLoaded }
     })
   }, [fetchWithCache, paginatedTransactions])
 

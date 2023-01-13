@@ -146,7 +146,7 @@ _This bug has 2 wrong behaviors that will be fixed with the same solution_
 
 _This bug has 2 wrong behaviors that can be fixed with the same solution. It's acceptable to fix with separate solutions as well._
 
-##### Part 1
+##### Part 1 *DONE* - **App.tsx, added check for selected employee or all, if employee don't show view more**
 
 **How to reproduce:**
 
@@ -158,7 +158,7 @@ _This bug has 2 wrong behaviors that can be fixed with the same solution. It's a
 
 **Actual:** The **View more** button is visible even when transactions are filtered by employee. _You can even click **View more** button and get an unexpected result_
 
-##### Part 2
+##### Part 2 *DONE* - **App.tsx, UsePaginatedTransactions, checked response length and if les than 5(!6 for delay) hide view more**
 
 **How to reproduce:**
 
