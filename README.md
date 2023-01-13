@@ -90,7 +90,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 **Actual:** Nothing happens
 
-# Bug 3: Cannot select _All Employees_ after selecting an employee
+# Bug 3: Cannot select _All Employees_ after selecting an employee *DONE* - **In App.tsc, if no id, set to Empty, then load all, remove thow error in rquests.ts**
 
 **How to reproduce:**
 
