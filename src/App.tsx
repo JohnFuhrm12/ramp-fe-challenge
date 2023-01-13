@@ -15,6 +15,8 @@ export function App() {
 
   const [isLoading, setIsLoading] = useState(false)
 
+  const [filteredByEmployee, setFilteredByEmployee] = useState(false)
+
   const transactions = useMemo(
     () => paginatedTransactions?.data ?? transactionsByEmployee ?? null,
     [paginatedTransactions, transactionsByEmployee]
@@ -62,10 +64,15 @@ export function App() {
             label: `${item.firstName} ${item.lastName}`,
           })}
           onChange={async (newValue) => {
+            if (newValue !== EMPTY_EMPLOYEE && newValue !== null) {
+              setFilteredByEmployee(true);
+            }
             if (newValue === EMPTY_EMPLOYEE) {
+              setFilteredByEmployee(false);
               loadAllTransactions()
             }
             if (newValue === null) {
+              setFilteredByEmployee(false);
               return 
             }
 
@@ -79,7 +86,7 @@ export function App() {
         <div className="RampGrid">
           <Transactions transactions={transactions} />
 
-          {transactions !== null && (
+          {!filteredByEmployee && transactions !== null && (
             <button
               className="RampButton"
               disabled={paginatedTransactionsUtils.loading}
