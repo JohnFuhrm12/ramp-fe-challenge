@@ -12,6 +12,7 @@ export function App() {
   const { data: employees, ...employeeUtils } = useEmployees()
   const { data: paginatedTransactions, ...paginatedTransactionsUtils } = usePaginatedTransactions()
   const { data: transactionsByEmployee, ...transactionsByEmployeeUtils } = useTransactionsByEmployee()
+
   const [isLoading, setIsLoading] = useState(false)
 
   const transactions = useMemo(
@@ -62,7 +63,7 @@ export function App() {
           })}
           onChange={async (newValue) => {
             if (newValue === null) {
-              return
+              return 
             }
 
             await loadTransactionsByEmployee(newValue.id)
