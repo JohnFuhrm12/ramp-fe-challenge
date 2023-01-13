@@ -17,7 +17,6 @@ export function App() {
 
   const [isLoading, setIsLoading] = useState(false)
 
-  //****
   const [filteredByEmployee, setFilteredByEmployee] = useState(false)
   const [allDataLoaded, setAllDataLoaded] = useState(false)
 

@@ -83,7 +83,7 @@ export function InputSelect<TItem>({
             return null
           }
 
-          if (isLoading) {
+          if (isLoading && items.length === 0) {
             return <div className="RampInputSelect--dropdown-item">{loadingLabel}...</div>
           }
 
