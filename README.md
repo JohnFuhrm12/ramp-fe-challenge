@@ -68,7 +68,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 ---
 
-# Bug 1: Select dropdown doesn't scroll with rest of the page
+# Bug 1: Select dropdown doesn't scroll with rest of the page *DONE* - **CSS Change, InputSelect Container - Pos: Absolute**
 
 **How to reproduce:**
 
@@ -80,7 +80,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 **Actual:** Options dropdown stays in the same position as you scroll the page, losing the reference to the select input
 
-# Bug 2: Approve checkbox not working
+# Bug 2: Approve checkbox not working *DONE* - **CSS Change, Display: None --> Opacity 0 and Margin Offset**
 
 **How to reproduce:**
 
