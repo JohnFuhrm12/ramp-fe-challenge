@@ -9,6 +9,7 @@ import { EMPTY_EMPLOYEE } from "./utils/constants"
 import { Employee } from "./utils/types"
 
 import { getVar } from "./hooks/usePaginatedTransactions"
+import { getPrevious } from "./hooks/usePaginatedTransactions"
 
 export function App() {
   const { data: employees, ...employeeUtils } = useEmployees()
@@ -19,6 +20,8 @@ export function App() {
 
   const [filteredByEmployee, setFilteredByEmployee] = useState(false)
   const [allDataLoaded, setAllDataLoaded] = useState(false)
+
+  const [previous, setPrevious] = useState([{}]);
 
   const transactions = useMemo(
     () => paginatedTransactions?.data ?? transactionsByEmployee ?? null,
@@ -31,6 +34,10 @@ export function App() {
 
     await employeeUtils.fetchAll()
     await paginatedTransactionsUtils.fetchAll()
+
+    const previousData = getPrevious()
+
+    setPrevious(previousData)
 
     if (getVar() === true) {
       setAllDataLoaded(true)
@@ -94,7 +101,8 @@ export function App() {
         <div className="RampBreak--l" />
 
         <div className="RampGrid">
-          <Transactions transactions={transactions} />
+      
+          <Transactions transactions={transactions}/>
 
           {!filteredByEmployee && !allDataLoaded && transactions !== null && (
             <button

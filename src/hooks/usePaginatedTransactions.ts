@@ -1,11 +1,18 @@
+import { Console } from "console";
 import { useCallback, useState } from "react"
 import { PaginatedRequestParams, PaginatedResponse, Transaction } from "../utils/types"
 import { PaginatedTransactionsResult } from "./types"
 import { useCustomFetch } from "./useCustomFetch"
 
 export let allDataLoaded = false;
+export let previousData = [{}];
+
 export function getVar() {
   return allDataLoaded
+}
+
+export function getPrevious() {
+  return previousData
 }
 
 export function usePaginatedTransactions(): PaginatedTransactionsResult {
@@ -26,6 +33,9 @@ export function usePaginatedTransactions(): PaginatedTransactionsResult {
       if (response === null || previousResponse === null) {
         return response
       }
+
+      // Push Previous Data
+      previousData.push(previousResponse)
 
       // Loads 5 transactions per "View More", If less than 5 than there is no more data to load //Need 6 to account for delay
       if (response.data.length < 6) {
