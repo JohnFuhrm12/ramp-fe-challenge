@@ -25,6 +25,7 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
     return <div className="RampLoading--container">Loading...</div>
   }
 
+  // Take the previous transactions and append them to the new ones
   let firstDone = false
   let secondDone = false
   if (previous[1] !== undefined && !firstDone) {
@@ -41,6 +42,17 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
     })
     secondDone = true
   }
+
+  // Remove Duplicates
+  let ids = []
+  transactions.forEach((transaction) => {
+    if (ids.includes(transaction.id) === false) {
+      ids.push(transaction.id)
+    } else {
+      const index = transactions.indexOf(transaction)
+      transactions.splice(index, 1)
+    }
+  }) 
 
   return (
     <div data-testid="transaction-container">

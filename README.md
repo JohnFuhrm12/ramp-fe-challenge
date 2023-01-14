@@ -103,7 +103,7 @@ We don't have a real API for this challenge, so we added some utilities to simul
 
 **Actual:** The page crashes
 
-# Bug 4: Clicking on View More button not showing correct data 
+# Bug 4: Clicking on View More button not showing correct data  *DONE, index.tsx, app.tsx, usepaginated, get previous results and append them to current results**
 
 **How to reproduce:**
 
